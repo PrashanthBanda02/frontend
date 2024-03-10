@@ -12,11 +12,11 @@ function Item(props) {
       <p>{name}</p>
       <div className="item-prices">
         <div className="item-price-new">
-          Rs
+          $
           {new_price}
         </div>
         <div className="item-price-old">
-          Rs
+          $
           {old_price}
         </div>
       </div>

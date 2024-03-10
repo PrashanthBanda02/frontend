@@ -1,11 +1,13 @@
-import React from 'react';
-import { Product } from '../../Pages/Product';
+import React, { useContext } from 'react';
 import star_icon from '../Assets/star_icon.png';
 import star_dull_icon from '../Assets/star_dull_icon.png';
 import './index.css';
+import { ShopContext } from '../../Context/ShopContext';
 
 export function ProductDisplay(props) {
   const { product } = props;
+  const {addToCart} = useContext(ShopContext)
+  
   return (
     <div className="product-display">
       <div className="product-display-left">
@@ -48,7 +50,7 @@ export function ProductDisplay(props) {
                 <div>XL</div>
                 <div>XXL</div>
             </div>
-            <button type='button'>ADD TO CART</button>
+            <button type='button' onClick={()=>{addToCart(product.id)}}>ADD TO CART</button>
             <p className="product-display-right-category"><span>Category: </span> Women T-shirt, Crop Top</p>
             <p className="product-display-right-category"><span>Tags: </span> Modern, Latest</p>
 
