@@ -1,31 +1,48 @@
-import {Link} from 'react-router-dom'
-import {useState} from 'react'
-import React from 'react'
-import './index.css'
-import logo from '../Assets/logo.png'
-import cart_icon from '../Assets/cart_icon.png'
+import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
 
-const Navbar = () => {
-    const [menu, setMenu] = useState('shop')
+import './index.css';
+import logo from '../Assets/logo.png';
+import cart_icon from '../Assets/cart_icon.png';
+
+function Navbar() {
+  const [menu, setMenu] = useState('shop');
   return (
-    <div className ='navbar'>
-        <div className='nav-logo'>
-            <img src={logo} alt='logo'/>
-            <p>UpTrendZ</p>
-        </div>
-        <ul className='nav-menu'>
-            <li onClick={()=>{setMenu('shop')}}><Link style={{textDecoration: "none"}} to='/'>Shop</Link> {menu==='shop'?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu('mens')}}> <Link style={{textDecoration: "none"}} to='/mens'>Men</Link> {menu==='mens'?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu('womens')}}><Link style={{textDecoration: "none"}} to='/womens'>Women</Link>  {menu==='womens'?<hr/>:<></>}</li>
-            <li onClick={()=>{setMenu('kids')}}><Link style={{textDecoration: "none"}} to='/kids'>Kids</Link> {menu==='kids'?<hr/>:<></>}</li>
-        </ul>
-        <div className='nav-login-cart'>
-            <Link to='/login'><button type='button'className=''>Login</button></Link>
-            <Link to='/cart'><img src={cart_icon} alt='cart icon' /></Link>  
-            <div className='nav-cart-count'>0</div>
-        </div>
+    <div className="navbar">
+      <div className="nav-logo">
+        <img src={logo} alt="logo" />
+        <p>UpTrendZ</p>
+      </div>
+      <ul className="nav-menu">
+        <li onClick={() => { setMenu('shop'); }}>
+          <Link style={{ textDecoration: 'none' }} to="/">Shop</Link>
+          {' '}
+          {menu === 'shop' ? <hr /> : <></>}
+        </li>
+        <li onClick={() => { setMenu('mens'); }}>
+          {' '}
+          <Link style={{ textDecoration: 'none' }} to="/mens">Men</Link>
+          {' '}
+          {menu === 'mens' ? <hr /> : <></>}
+        </li>
+        <li onClick={() => { setMenu('womens'); }}>
+          <Link style={{ textDecoration: 'none' }} to="/womens">Women</Link>
+          {' '}
+          {menu === 'womens' ? <hr /> : <></>}
+        </li>
+        <li onClick={() => { setMenu('kids'); }}>
+          <Link style={{ textDecoration: 'none' }} to="/kids">Kids</Link>
+          {' '}
+          {menu === 'kids' ? <hr /> : <></>}
+        </li>
+      </ul>
+      <div className="nav-login-cart">
+        <Link to="/login"><button type="button" className="">Login</button></Link>
+        <Link to="/cart"><img src={cart_icon} alt="cart icon" /></Link>
+        <div className="nav-cart-count">0</div>
+      </div>
     </div>
-  )
+  );
 }
 
-export default Navbar
+export default Navbar;

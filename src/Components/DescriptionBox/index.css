@@ -1,0 +1,29 @@
+.description-box{
+    margin: 120px 170px;
+
+}
+.description-box-navigator{
+    display: flex;
+}
+.description-box-nav-box{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 171px;
+    height: 70px;
+    font-size: 16px;
+    font-weight: 600;
+    border: 1px solid #d0d0d0;
+}
+.description-box-nav-box.fade{
+    background-color: #FBFBFB;
+    color: #555;
+
+}
+.description-box-description{
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    border: 1px solid #D0D0D0;
+    padding: 8px;
+}
