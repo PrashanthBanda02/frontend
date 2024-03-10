@@ -2,22 +2,22 @@ import React from 'react'
 import './index.css'
 import hand_icon from '../Assets/hand_icon.png'
 import arrow_icon from '../Assets/arrow.png'
-import hero_image from '../Assets/hero_image.png'
+
+import hero_img2 from '../Assets/hero_img2.jpg'
 
 
 
-export const Hero = () => {
+const Hero = () => {
   return (
     <div className='hero'>
         <div className='hero-left'>
             <h2>NEW ARRIVALS ONLY</h2>
             <div>
                 <div className='hero-hand-icon'>
-                    <p>NEW</p>
+                    <p>Grab</p>
                     <img src={hand_icon} alt='hand icon'/>
                 </div>
-                <p>Collections</p>
-                <p>for everyone</p>
+                <p>Brand<br/>NEW<br/>Collections</p>
             </div>
             <div className='hero-latest-btn'>
             <div>latest collections</div>
@@ -25,7 +25,7 @@ export const Hero = () => {
         </div>
         </div>
         <div className='hero-right'>
-            <img src={hero_image} alt='hero'/>
+            <img src={hero_img2} alt='hero'/>
         </div>
     </div>
   )
