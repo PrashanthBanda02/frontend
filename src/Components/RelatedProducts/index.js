@@ -8,7 +8,7 @@ const RelatedProducts = () => {
     <div className='related-products'>
         <h1>Related Products</h1>
         <hr />
-        <div className='related-products-item'>
+        <div className='related-products-items'>
             {data_product.map((item)=>(
                 <Item key={item.id} itemDetails={item} />
             ))}
@@ -18,4 +18,5 @@ const RelatedProducts = () => {
 }
 
 export default RelatedProducts
+
 

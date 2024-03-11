@@ -60,3 +60,60 @@
     font-size: 18px;
     font-weight: 500;
 }
+
+@media(max-width: 1280px){
+    .loginSignup-container{
+        width: auto;
+        max-width: 600px;
+        max-height: 600px;    
+    }
+    .loginSignup-container h1{
+        margin: 10px 0px;
+    }
+    .loginSignup-fields{
+        margin-top: 20px;
+    }
+    .loginSignup-container button{
+        width: 18vw;
+    }
+    .loginSignup-login{
+        font-size: 16px;
+   }
+   .loginSignup-agree{
+    gap: 10px;
+    font-size: 14px;
+}
+
+}
+
+
+@media(max-width: 800px){
+    .loginSignup-container{
+        padding: 20px 30px;  
+    }
+    .loginSignup-container h1{
+        font-size: 24px;
+    }
+    .loginSignup-fields{
+        margin-top: 0px;
+    }
+    .loginSignup-fields input{
+        height: 30px;
+        width: 120%;
+        font-size: 12px;
+    }
+
+    .loginSignup-container button{
+        width: 14vw;
+        height: 24px;
+        font-size: 13px;
+    }
+    .loginSignup-login{
+        font-size: 10px;
+   }
+   .loginSignup-agree{
+    gap: 5px;
+    font-size: 8px;
+}
+
+}
