@@ -5,7 +5,7 @@ import Offers from '../Components/Offers';
 import NewCollections from '../Components/NewCollections';
 import NewsLetter from '../Components/NewsLetter';
 
-export function Shop() {
+export const Shop = () => {
   return (
     <div>
       <Hero />

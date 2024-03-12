@@ -15,7 +15,7 @@ export function LoginSignup() {
   }
 
   const Login = async() =>{
-    console.log('Login up function executed',formData)
+    console.log('Login function executed',formData)
     let responseData ;
     await fetch('http://localhost:4000/login',{
       method: "POST",
@@ -102,10 +102,7 @@ export function LoginSignup() {
           Create an account?
           <span onClick={()=>{setState("Sign Up")}} >Click here</span>
         </p> }
-
         
-        
-
       </div>
     </div>
   );
