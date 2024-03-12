@@ -5,7 +5,7 @@ import pintester_icon from '../Assets/pintester_icon.png';
 import whatsapp_icon from '../Assets/whatsapp_icon.png';
 import './index.css';
 
-function Footer() {
+const Footer = ()=> {
   return (
     <div className="footer">
       <div className="footer-logo">
