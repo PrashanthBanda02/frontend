@@ -9,9 +9,9 @@ export function LoginSignup() {
   const [state,setState] = useState('Sign Up')
 
   const [formData,setFormData] = useState({
-    username : 'tan',
-    password : 'tan123',
-    email : 'tan@gmail.com'
+    username : '',
+    password : '',
+    email : ''
   })
 
   const changeHandler = (event) =>{
@@ -34,10 +34,10 @@ export function LoginSignup() {
       Cookies.set('jwt-token',responseData.token);
       navigate('/')
     }
-    else{
-      alert(responseData.errors)
+    else
+    {
+      alert('Invalid user')
     }
-
   }
 
   const Signup = async() =>{
