@@ -1,13 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { ShopContext } from '../Context/ShopContext';
 import dropdown_icon from '../Components/Assets/dropdown_icon.png';
 import './CSS/ShopCategory.css';
 import Item from '../Components/Item';
+import Cookies from 'js-cookie';
+import { useNavigate } from 'react-router-dom';
+import Navbar from '../Components/Navbar';
+import Footer from '../Components/Footer';
 
 export function ShopCategory(props) {
+  const Navigate=useNavigate();
   const { all_product } = useContext(ShopContext);
+   
+  useEffect(()=>{
+    const jwtToken=Cookies.get("jwt-token")
+    console.log(jwtToken)
+    if(jwtToken===undefined){
+      Navigate('/login')
+    }
+  },[])
+ 
+ 
   return (
-    <div className="shop-category">
+    <>
+    <Navbar/>
+   <div className="shop-category">
       <img className="shop-category-banner" src={props.banner} alt="banner" />
       <div className="shopcategory-indexSort">
         <p>
@@ -35,5 +52,8 @@ export function ShopCategory(props) {
         Explore More
       </div>
     </div>
+    <Footer/>
+    </>
+    
   );
 }
