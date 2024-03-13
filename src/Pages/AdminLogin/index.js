@@ -1,27 +1,28 @@
 import React,{useState} from 'react';
-import './CSS/LoginSignup.css';
 import { useNavigate } from 'react-router-dom';
 import Cookies from 'js-cookie';
+import './index.css'
 
-export function LoginSignup() {
+export function AdminLogin() {
   const navigate=useNavigate();
-
-  const [state,setState] = useState('Sign Up')
-
   const [formData,setFormData] = useState({
-    username : 'tan',
-    password : 'tan123',
-    email : 'tan@gmail.com'
+    username : 'Swiftsafe',
+    password : 'Swiftsafe123',
+    email : 'swiftsafeadmin@gmail.com'
   })
+
+  const goToLoginPage =()=>{
+    navigate('/login')
+  }
 
   const changeHandler = (event) =>{
     setFormData({...formData, [event.target.name]: event.target.value})
   }
 
   const Login = async() =>{
-    console.log('Login function executed',formData)
+    console.log('Login function executed in Admin',formData)
     let responseData ;
-    await fetch('http://localhost:4000/login',{
+    await fetch('http://localhost:4000/admin/login',{
       method: "POST",
       headers: {
         Accept : 'application/form-data',
@@ -32,52 +33,26 @@ export function LoginSignup() {
 
     if(responseData.success){
       Cookies.set('jwt-token',responseData.token);
-      navigate('/')
+      navigate('/adminLoggedIn')
     }
-    else{
-      alert(responseData.errors)
-    }
-
-  }
-
-  const Signup = async() =>{
-    console.log('Sign up function executed',formData)
-    let responseData ;
-    await fetch('http://localhost:4000/signup',{
-      method: "POST",
-      headers: {
-        Accept : 'application/form-data',
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData),
-    }).then((response)=> response.json()).then((data)=> responseData = data)
-
-    if(responseData.success){
-      Cookies.set('jwt-token',responseData.token);
-      navigate('/');
-    }
-    else{
-      alert(responseData.errors)
+    else
+    {
+      alert('Invalid user')
+      navigate('/adminLogin')
     }
   }
-
-   const gotAdminLogin=()=>{
-     navigate('/adminLogin')
-   }
 
   return (
     <div className="loginSignup">
       <div className="loginSignup-container">
-        <h1>{state}</h1>
         <div className="loginSignup-fields">
-          {state === 'Sign Up' && 
             <input 
             value={formData.username} 
             name='username' 
             onChange={changeHandler} 
             type="text" 
             placeholder="Your Name" 
-            /> }
+            /> 
             <input 
             type="email"
             value={formData.email} 
@@ -97,21 +72,8 @@ export function LoginSignup() {
             <input type="checkbox" name="" id="" />
             <p>By Continuing, I agree to the terms of use & privacy policy.</p>
           </div>
-        <button onClick={state==="Login"? Login : Signup } type="button">Continue</button>
-        {state === 'Sign Up' && 
-        <p onClick={()=>{setState("Login")}} className="loginSignup-login">
-          Already have an account?
-          <span>Login here</span>
-        </p> }
-        {state !== 'Sign Up' && 
-        <p className="loginSignup-login">
-          Create an account?
-          <span onClick={()=>{setState("Sign Up")}} >Click here</span>
-        </p> }
-
-        <p className="loginSignup-login">
-                Are you an admin?? <span onClick={gotAdminLogin} >Click here to login</span>
-        </p>
+        <button onClick={Login} type="button">Login</button>
+        <button onClick={goToLoginPage} id='backBtn'>Back</button>
       </div>
     </div>
   );

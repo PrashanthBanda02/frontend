@@ -1,6 +1,6 @@
 .loginSignup{
-    height: 100vh;
     width: 100%;
+    height: 100vh;
     background: #fce3fe;
     display: flex;
     justify-content: center;
@@ -46,6 +46,19 @@
     cursor: pointer;
     color: white;
     border-radius: 5px; 
+    margin-bottom: 0px;
+}
+#backBtn{
+    height: 32px;
+    width: 80px;
+    background-color: #6a5acd;
+    border: none;
+    font-size: 20px;
+    font-weight: 500;
+    cursor: pointer;
+    color: white;
+    border-radius: 5px; 
+
 }
 .loginSignup-login span{
      color: blue;

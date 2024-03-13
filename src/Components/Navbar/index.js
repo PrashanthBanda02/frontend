@@ -1,4 +1,4 @@
-import {Link} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 import {useContext, useState,useRef} from 'react'
 import { IoIosArrowDropdown } from "react-icons/io";
 import React from 'react'
@@ -6,8 +6,12 @@ import './index.css'
 import logo from '../Assets/logo.png'
 import cart_icon from '../Assets/cart_icon.png'
 import { ShopContext } from '../../Context/ShopContext'
+import Cookies from 'js-cookie';
 
 const Navbar = () => {
+
+    const navigate= useNavigate()
+
     const [menu, setMenu] = useState('shop')
     const {getTotalCartItems} = useContext(ShopContext)
     const menuRef = useRef();
@@ -35,9 +39,9 @@ const Navbar = () => {
             <li onClick={()=>{setMenu('kids')}}><Link style={{textDecoration: "none"}} to='/kids'>Kids</Link> {menu==='kids'?<hr/>:<></>}</li>
         </ul>
         <div className='nav-login-cart'>
-            {localStorage.getItem("auth-token") ? (
+            {Cookies.get('jwt-token') ? (
             <button
-            onClick={()=>{localStorage.removeItem('auth-token') ; window.location.replace('/')}}
+            onClick={()=>{ Cookies.remove('jwt-token') ; navigate('/login')}}
             type='button' 
             className=''>
                 Log out
