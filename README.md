@@ -1,4 +1,4 @@
-## Project Name: Frontend
+## Project Name: UpTrendZ-E-Commerce application
 
 ### Description:
 This project serves as the frontend for an e-commerce application. It provides a user interface for browsing products, adding them to the cart, and viewing the cart.
